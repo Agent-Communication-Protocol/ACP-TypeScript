@@ -1,5 +1,5 @@
-# **Agent-to-Agent Communication SDK**
-The AI Agent Communication SDK is your go-to tool for creating a standard way for AI agents to chat across different platforms. In this first version, we’re all about messaging—making it super easy for people and AI agents on various platforms to send messages back and forth.
+# **ACP TypeScript**
+The Agent Communication Protocol (ACP) SDK is your go-to tool for creating a standard way for AI agents to chat across different platforms. In this first version, we’re all about messaging—making it super easy for people and AI agents on various platforms to send messages back and forth.
 
 We’ve abstracted the details of different messaging protocol APIs into a unified interface. If you’re a messaging platform, just follow the rules to implement your chat interface. If you’re building an AI agent platform, plug in this SDK, and boom—instant chat support.
 
@@ -7,40 +7,43 @@ But we’re not stopping at messaging. Future updates will bring cool social fea
 
 With the SDK, your agents can:
 - Collaborate, communicate, and support each other.
-- Seamlessly send messages and crypto across platforms.
-- Operate on multiple blockchain networks like Solana, Base, and more.
+- Seamlessly send messages and crypto across applications.
+- Operate on multiple blockchain networks like Ethereum, Arbitrum, Base, and more.
 
-The protocol is **chain-agnostic**, **lightweight**, and supports **interoperable messaging formats**, making it easy for developers to integrate into their agents.
+The protocol is **chain-agnostic**, **lightweight**, and supports **interoperable messaging formats**, making it easy for developers to integrate into the agents.
 
-![architecture](ai_comm.png)
+![architecture](acp.png)
 
 
 ## **Features**
 
 ### **Messaging Made Easy**
-The SDK abstracts complex messaging operations, allowing developers to:
-- Register AI agents on supported platforms.
-- Interact with agents through simple, intuitive methods.
-- Switch between messaging providers without modifying the agent’s core logic.
+The SDK abstracts the messaging operations, allowing developers to:
+- Register AI agents on supported messaging platforms.
+- Interact with agents through the applications supported by these networks.
+- Seamlessly switch between messaging providers using the original unified interfaces, without requiring a new SDK integration.
 
 ### **Supported Messaging Platforms**
-- **SendingNetwork**: The first implementation of the messaging protocol, enabling AI agents to register and interact on platforms like **SendingMe**.
-- **Future Updates**: Support for group chats, file sharing, and audio/video messaging.
+- **SendingNetwork**: The first implementation of the decentralized messaging protocol, enabling AI agents to register and interact on platforms like [SendingMe](https://www.sending.me/).
+- **Future Updates**: Support for transactions, feeds, and other messaging features like file sharing, and audio/video chat.
 
 ## Prerequisites
-- [Python 2.7+](https://www.python.org/downloads/)
-- [Node.js 23+](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+- [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+- [node.js 23+](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 ## **Get Started**
 ### **Quick Start**
 ### **1. Configure Your Agent**
-Set up a configuration file (or update an existing one in your project) with the following:
-- Specify the platform implementation you’re targeting. For exmaple, if you want your agent to be accessible via the SendingMe application powered by SendingNetwork, choose SendingNetwork.
-- Add the **public key** and **private key** for your agent’s wallet. Note that the SDK uses them solely for signing purposes.
+AI agent providers can configure your setup by specifying the communication type and service provider in your configuration file or command-line arguments.  
+
+- Select the target platform: If you want your agent to operate within applications powered by the SendingNetwork protocol, choose `MessagingPlatform` and `SendingNetwork` as your communication type.  
+- Provide wallet credentials: Add the public key and private key for your agent’s wallet. The SDK uses these keys exclusively for signing purposes.
+
 
 Example Configuration:
 ```json
 {
+  "type": "MessagingPlatform",
   "platform": "SendingNetwork",
   "wallet": {
     "publicKey": "0xAgentWalletPublicKey",
@@ -63,7 +66,7 @@ Send messages from your agent to users or other agents using the platform’s un
 
 #### **Send a Text Message**
 ```javascript
-var res=await acpClient.sendTextMessage("auth_token","room_id","content");
+var res=await acpClient.sendTextMessage("auth_token","room_id","Hello, World!");
 console.log('Message sent!');
 ```
 
@@ -77,7 +80,9 @@ console.log('sync resp ',resp);
 
 ## **Contribution**
 
-We welcome developers to extend the SDK by implementing additional APIs for new platforms. Integrate it into your AI agent and experiment with supported platforms like **SendingMe** and more.
+Contributions are welcome! If you're adding new implementations, feel free to submit a pull request. For major protocol changes, we recommend discussing them first by opening a GitHub issue. Once a pull request is submitted, it will require a single approval before merging.
+
+We welcome developers to extend the SDK by implementing additional APIs for new platforms. Integrate it into your AI agent and experiment with supported platforms like SendingMe and more.
 
 Feel free to:
 - **Implement APIs for unsupported platforms.**
