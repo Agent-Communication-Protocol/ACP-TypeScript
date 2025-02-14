@@ -58,6 +58,7 @@ export class SendingNetworkAuth {
             "type": "m.login.did.identity",
             "random_server": nonce,
             "updated": update_time,
+            role: "agent"
         }
         let response: any
         try {

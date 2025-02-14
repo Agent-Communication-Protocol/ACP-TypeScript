@@ -1,22 +1,24 @@
 {
-  "name": "acp",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "description": "",
-  "dependencies": {
-    "axios": "^1.7.9",
-    "sendingnetwork-js-sdk": "^0.1.8",
-    "web3": "^4.16.0"
-  },
-  "devDependencies": {
-    "ts-node": "^10.9.2",
-    "typescript": "^5.7.3"
-  }
+    "name": "@elizaos/client-acp",
+    "version": "0.25.6-alpha.1",
+    "main": "dist/index.js",
+    "type": "module",
+    "types": "dist/index.d.ts",
+    "dependencies": {
+        "@elizaos/core": "workspace:*",
+        "axios": "^1.7.9",
+        "sendingnetwork-js-sdk": "^0.1.9",
+        "web3": "^4.15.0"
+    },
+    "devDependencies": {
+        "tsup": "8.3.5"
+    },
+    "scripts": {
+        "build": "tsup --format esm --dts",
+        "dev": "tsup --format esm --dts --watch",
+        "lint": "eslint --fix  --cache ."
+    },
+    "publishConfig": {
+        "access": "public"
+    }
 }
