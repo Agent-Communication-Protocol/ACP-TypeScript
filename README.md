@@ -28,7 +28,7 @@ The SDK abstracts the messaging operations, allowing developers to:
 - **Future Updates**: Support for transactions, feeds, and other messaging features like file sharing, and audio/video chat.
 
 ## Prerequisites
-- [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+- [pnpm](https://pnpm.io/)
 - [node.js 23+](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 ## **Get Started**
